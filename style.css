@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    padding: 20px;
+}
+
+header {
+    background: #003366;
+    color: white;
+    padding: 30px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: 5px;
+}
+
+.btn-logout {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card-login-tela {
+    max-width: 400px;
+    margin: 80px auto;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h2, .card h3 {
+    color: #003366;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.card input, .card select, .card textarea {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.card button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background: #003366;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.user-info-bar {
+    background: #e6f0fa;
+    color: #003366;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+#mural {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.bloco-categoria {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    border-top: 5px solid #003366;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.bloco-categoria h2 {
+    color: #003366;
+    border-bottom: 2px solid #f4f6f9;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.item-aviso {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    border-left: 3px solid #003366;
+}
+
+.menu-dots {
+    cursor: pointer;
+    font-size: 18px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 5px;
+    top: 25px;
+    background: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    border-radius: 4px;
+}
+
+.dropdown button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.escondido {
+    display: none !important;
+}

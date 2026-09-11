@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>CEEP Informa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TELA DE ROSTO (LOGIN INICIAL) -->
+    <div id="telaLogin" class="container card-login-tela">
+        <div class="card">
+            <h2>CEEP INFORMA</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #666; font-size: 13px;">Acesso ao Portal Escolar</p>
+            <form id="formLogin">
+                <input type="text" id="usuario" placeholder="Usuário (ex: gestor ou aluno)" required>
+                <input type="password" id="senha" placeholder="Senha" required>
+                <button type="submit">Acessar Portal</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MURAL PRINCIPAL (SÓ APARECE APÓS O LOGIN) -->
+    <div id="muralPrincipal" class="container escondido">
+        <header>
+            <h1>CEEP INFORMA</h1>
+            <p>Plataforma Digital de Comunicação Escolar</p>
+            <button class="btn-logout" onclick="fazerLogout()">Sair</button>
+        </header>
+
+        <div class="user-info-bar">
+            <span>Bem-vindo(a), <span id="nomeUsuarioTxt"></span></span>
+        </div>
+
+        <!-- Formulário exclusivo para a Equipe Gestora -->
+        <div id="cardPublicar" class="card escondido">
+            <h3>Publicar Novo Aviso</h3>
+            <form id="formAviso">
+                <input type="hidden" id="editId">
+                <input type="text" id="titulo" placeholder="Título do Aviso" required>
+                <select id="categoria">
+                    <option>Avisos Urgentes</option>
+                    <option>Avisos Comuns</option>
+                    <option>Eventos</option>
+                    <option>Cardápio Semanal</option>
+                    <option>Calendário Escolar</option>
+                    <option>Reuniões</option>
+                </select>
+                <textarea id="conteudo" placeholder="Conteúdo do comunicado..." rows="3" required></textarea>
+                <button type="submit">Publicar Comunicado</button>
+            </form>
+        </div>
+
+        <!-- Mural com blocos dinâmicos por categoria -->
+        <div id="mural"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
