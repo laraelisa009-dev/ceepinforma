@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>CEEP Informa - Mural de Avisos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="main-container">
+    <h1>Mural de Avisos - CEEP Informa</h1>
+
+    <!-- Caixa para o ADM publicar avisos -->
+    <div id="caixa-adm" class="admin-section">
+      <h2>Publicar Novo Aviso</h2>
+      <form id="form-publicar-aviso">
+        <input type="text" id="aviso-titulo" placeholder="Título do Aviso" required>
+        <textarea id="aviso-conteudo" placeholder="Escreva o aviso aqui..." rows="3" required></textarea>
+        <button type="submit">Publicar</button>
+      </form>
+    </div>
+
+    <h2>Avisos Recentes</h2>
+    <div id="lista-avisos"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
