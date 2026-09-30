@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-   Cadastro
+  // Cadastro
   const formCadastro = document.getElementById('form-cadastro');
   if (formCadastro) {
     formCadastro.addEventListener('submit', async (e) => {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-   Login 
+  // Login
   const formLogin = document.getElementById('form-login');
   if (formLogin) {
     formLogin.addEventListener('submit', async (e) => {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  
+  // Proteção de rotas e verificação de sessão
   const usuarioAtivo = JSON.parse(sessionStorage.getItem('usuario_ativo'));
   const paginaAtual = window.location.pathname;
 
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'index.html';
   }
 
-  
+  // Controle de visibilidade da caixa de admin
   const caixaAdm = document.getElementById('caixa-adm');
   if (caixaAdm) {
     if (usuarioAtivo && usuarioAtivo.tipo === 'admin') {
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  
+  // Publicação de avisos (admin)
   const formPublicar = document.getElementById('form-publicar-aviso');
   if (formPublicar) {
     formPublicar.addEventListener('submit', async (e) => {
@@ -105,12 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  
   if (paginaAtual.includes('mural.html')) {
     carregarAvisosDoServidor();
   }
 
-  Logout 
+  // Logout
   const btnLogout = document.querySelector('.logout');
   if (btnLogout) {
     btnLogout.addEventListener('click', (e) => {
@@ -120,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
- Perfil
+  // Perfil
   const formPerfil = document.getElementById('form-perfil');
   if (formPerfil && usuarioAtivo) {
     document.getElementById('perfil-nome').value = usuarioAtivo.nome || '';

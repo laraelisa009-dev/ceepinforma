@@ -6,12 +6,11 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Banco de Dados SQLite//
+// Banco de Dados SQLite
 const dbPath = path.resolve(__dirname, 'banco.db');
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
@@ -20,7 +19,6 @@ const db = new sqlite3.Database(dbPath, (err) => {
     console.log('Conectado ao banco de dados SQLite.');
   }
 });
-
 
 db.serialize(() => {
   db.run(`CREATE TABLE IF NOT EXISTS usuarios (
@@ -43,7 +41,6 @@ db.serialize(() => {
     data TEXT NOT NULL
   )`);
 });
-
 
 app.post('/api/cadastro', (req, res) => {
   const { nome, email, senha } = req.body;
@@ -135,7 +132,7 @@ app.put('/api/perfil', (req, res) => {
   });
 });
 
- Rota principal para abrir a página de login automaticamente
+// Rota principal para abrir a página de login automaticamente
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

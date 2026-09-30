@@ -1,4 +1,4 @@
-[<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -54,8 +54,7 @@
         <h3>Categorias de Avisos</h3>
         
         <div class="grid-avisos">
-          <!-- Card 1: Urgentes -->
-          <div class="card-aviso card-urgente" onclick="abrirCardCategoria('urgente', 'Avisos Urgentes')">
+          <div class="card-aviso card-urgente">
             <div class="card-header-cat">
               <span class="cat-title">⚠️ AVISOS URGENTES</span>
               <span class="arrow">&gt;</span>
@@ -68,7 +67,7 @@
             </div>
           </div>
 
-          <div class="card-aviso card-cardapio" onclick="abrirCardCategoria('cardapio', 'Cardápio Escolar')">
+          <div class="card-aviso card-cardapio">
             <div class="card-header-cat">
               <span class="cat-title">🥗 CARDÁPIO ESCOLAR</span>
               <span class="arrow">&gt;</span>
@@ -81,7 +80,7 @@
             </div>
           </div>
 
-          <div class="card-aviso card-evento" onclick="abrirCardCategoria('evento', 'Eventos Escolares')">
+          <div class="card-aviso card-evento">
             <div class="card-header-cat">
               <span class="cat-title">🎉 EVENTOS ESCOLARES</span>
               <span class="arrow">&gt;</span>
@@ -94,7 +93,7 @@
             </div>
           </div>
 
-          <div class="card-aviso card-reuniao" onclick="abrirCardCategoria('reuniao', 'Reuniões Pedagógicas')">
+          <div class="card-aviso card-reuniao">
             <div class="card-header-cat">
               <span class="cat-title">👥 REUNIÕES PEDAGÓGICAS</span>
               <span class="arrow">&gt;</span>
@@ -107,7 +106,7 @@
             </div>
           </div>
 
-          <div class="card-aviso card-projeto" onclick="abrirCardCategoria('projeto', 'Atividades e Projetos')">
+          <div class="card-aviso card-projeto">
             <div class="card-header-cat">
               <span class="cat-title">🚀 ATIVIDADES E PROJETOS</span>
               <span class="arrow">&gt;</span>
@@ -120,8 +119,7 @@
             </div>
           </div>
 
-         
-          <div class="card-aviso card-outro" onclick="abrirCardCategoria('outro', 'Outros')">
+          <div class="card-aviso card-outro">
             <div class="card-header-cat">
               <span class="cat-title">📌 OUTROS</span>
               <span class="arrow">&gt;</span>
@@ -139,15 +137,14 @@
     </main>
   </div>
 
- 
-    <div id="modal-aviso" class="modal-overlay hidden">
-      <div class="modal-content">
-        <span id="modal-cat-tag" class="modal-tag">CATEGORIA</span>
-        <div id="modal-lista-corpo"></div>
-        <button onclick="fecharModal()" class="btn-fechar-modal">Fechar</button>
-      </div>
+  <div id="modal-aviso" class="modal-overlay hidden">
+    <div class="modal-content">
+      <span id="modal-cat-tag" class="modal-tag">CATEGORIA</span>
+      <div id="modal-lista-corpo"></div>
+      <button onclick="fecharModal()" class="btn-fechar-modal">Fechar</button>
     </div>
-  
+  </div>
+
   <script src="script.js"></script>
 </body>
-</html>]
+</html>

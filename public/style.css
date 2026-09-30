@@ -330,6 +330,7 @@ body {
 
 .card-outro { border-top: 4px solid #7f8c8d; background-color: #f9f9f9; }
 .card-outro .cat-title { color: #7f8c8d; }
+
 .item-aviso-lista {
   border-bottom: 1px solid #eee;
   padding: 12px 0;
@@ -346,4 +347,56 @@ body {
   font-size: 0.8rem;
   cursor: pointer;
   margin-top: 8px;
+}
+
+/* --- Modal de Avisos --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.modal-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #163c78;
+  background: #eef2fb;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.btn-fechar-modal {
+  width: 100%;
+  padding: 10px;
+  background-color: #163c78;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.btn-fechar-modal:hover {
+  background-color: #102c59;
 }
