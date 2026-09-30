@@ -147,20 +147,15 @@
     </main>
   </div>
 
-  <!-- Modal para exibir o Aviso Publicado -->
-  <div id="modal-aviso" class="modal-overlay hidden">
-    <div class="modal-content">
-      <span id="modal-cat-tag" class="modal-tag">CATEGORIA</span>
-      <h2 id="modal-titulo">Título do Aviso</h2>
-      <p id="modal-texto" style="margin: 15px 0; color: #444; line-height: 1.6;">Conteúdo...</p>
-      <div class="modal-footer">
-        <span id="modal-data">📅 Data</span>
-        <span id="modal-autor">👤 Escola</span>
+ <!-- Modal para exibir a Lista de Avisos da Categoria -->
+    <div id="modal-aviso" class="modal-overlay hidden">
+      <div class="modal-content">
+        <span id="modal-cat-tag" class="modal-tag">CATEGORIA</span>
+        <div id="modal-lista-corpo"></div>
+        <button onclick="fecharModal()" class="btn-fechar-modal">Fechar</button>
       </div>
-      <button onclick="fecharModal()" class="btn-fechar-modal">Fechar</button>
     </div>
-  </div>
-
+  
   <script src="script.js"></script>
 </body>
 </html>]

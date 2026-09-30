@@ -330,3 +330,20 @@ body {
 
 .card-outro { border-top: 4px solid #7f8c8d; background-color: #f9f9f9; }
 .card-outro .cat-title { color: #7f8c8d; }
+.item-aviso-lista {
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+.item-aviso-lista:last-child {
+  border-bottom: none;
+}
+.btn-excluir {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: 8px;
+}
