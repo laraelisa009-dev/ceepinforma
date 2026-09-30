@@ -10,7 +10,6 @@
 
   <div class="dashboard-container">
     
-    <!-- Menu Lateral -->
     <aside class="sidebar">
       <div class="sidebar-brand">
         <h2>ceep <span>Informa</span></h2>
@@ -29,10 +28,8 @@
       </div>
     </aside>
 
-    <!-- Conteúdo Principal -->
     <main class="main-content">
       
-      <!-- Caixa de Publicação do ADM (Foco Principal) -->
       <div id="caixa-adm" class="admin-section" style="margin-top: 10px;">
         <h2>Publique um novo aviso</h2>
         <form id="form-publicar-aviso">
@@ -53,7 +50,6 @@
         </form>
       </div>
 
-      <!-- Grid de Categorias de Avisos (Dinâmicos) -->
       <section class="avisos-section" style="margin-top: 30px;">
         <h3>Categorias de Avisos</h3>
         
@@ -72,7 +68,6 @@
             </div>
           </div>
 
-          <!-- Card 2: Cardápio Escolar -->
           <div class="card-aviso card-cardapio" onclick="abrirCardCategoria('cardapio', 'Cardápio Escolar')">
             <div class="card-header-cat">
               <span class="cat-title">🥗 CARDÁPIO ESCOLAR</span>
@@ -86,7 +81,6 @@
             </div>
           </div>
 
-          <!-- Card 3: Eventos Escolares -->
           <div class="card-aviso card-evento" onclick="abrirCardCategoria('evento', 'Eventos Escolares')">
             <div class="card-header-cat">
               <span class="cat-title">🎉 EVENTOS ESCOLARES</span>
@@ -100,7 +94,6 @@
             </div>
           </div>
 
-          <!-- Card 4: Reuniões Pedagógicas -->
           <div class="card-aviso card-reuniao" onclick="abrirCardCategoria('reuniao', 'Reuniões Pedagógicas')">
             <div class="card-header-cat">
               <span class="cat-title">👥 REUNIÕES PEDAGÓGICAS</span>
@@ -114,7 +107,6 @@
             </div>
           </div>
 
-          <!-- Card 5: Atividades e Projetos -->
           <div class="card-aviso card-projeto" onclick="abrirCardCategoria('projeto', 'Atividades e Projetos')">
             <div class="card-header-cat">
               <span class="cat-title">🚀 ATIVIDADES E PROJETOS</span>
@@ -128,7 +120,7 @@
             </div>
           </div>
 
-          <!-- Card 6: Outros -->
+         
           <div class="card-aviso card-outro" onclick="abrirCardCategoria('outro', 'Outros')">
             <div class="card-header-cat">
               <span class="cat-title">📌 OUTROS</span>
@@ -147,7 +139,7 @@
     </main>
   </div>
 
- <!-- Modal para exibir a Lista de Avisos da Categoria -->
+ 
     <div id="modal-aviso" class="modal-overlay hidden">
       <div class="modal-content">
         <span id="modal-cat-tag" class="modal-tag">CATEGORIA</span>
