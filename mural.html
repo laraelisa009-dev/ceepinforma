@@ -1,29 +1,166 @@
-<!DOCTYPE html>
+[<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CEEP Informa - Mural de Avisos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="main-container">
-    <h1>Mural de Avisos - CEEP Informa</h1>
+  <div class="dashboard-container">
+    
+    <!-- Menu Lateral -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>ceep <span>Informa</span></h2>
+        <p>Plataforma de avisos</p>
+      </div>
 
-    <!-- Caixa para o ADM publicar avisos -->
-    <div id="caixa-adm" class="admin-section">
-      <h2>Publicar Novo Aviso</h2>
-      <form id="form-publicar-aviso">
-        <input type="text" id="aviso-titulo" placeholder="Título do Aviso" required>
-        <textarea id="aviso-conteudo" placeholder="Escreva o aviso aqui..." rows="3" required></textarea>
-        <button type="submit">Publicar</button>
-      </form>
+      <nav class="sidebar-nav">
+        <a href="mural.html" class="nav-item active">Início</a>
+        <a href="perfil.html" class="nav-item">Meu perfil</a>
+        <a href="contato.html" class="nav-item">Canais de atendimento</a>
+        <a href="index.html" class="nav-item logout">Sair da conta</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Juntos por uma escola melhor! ♥</p>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+      
+      <!-- Caixa de Publicação do ADM (Foco Principal) -->
+      <div id="caixa-adm" class="admin-section" style="margin-top: 10px;">
+        <h2>Publique um novo aviso</h2>
+        <form id="form-publicar-aviso">
+          <input type="text" id="aviso-titulo" placeholder="Título do Aviso" required>
+          
+          <select id="aviso-categoria" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #dcdcdc; border-radius: 8px; outline: none; background: white;" required>
+            <option value="">Selecione a categoria do aviso</option>
+            <option value="urgente">⚠️ Avisos Urgentes</option>
+            <option value="cardapio">🥗 Cardápio Escolar</option>
+            <option value="evento">🎉 Eventos Escolares</option>
+            <option value="reuniao">👥 Reuniões Pedagógicas</option>
+            <option value="projeto">🚀 Atividades e Projetos</option>
+            <option value="outro">📌 Outros</option>
+          </select>
+
+          <textarea id="aviso-conteudo" placeholder="Conteúdo do aviso..." rows="3" required></textarea>
+          <button type="submit">Publicar Aviso</button>
+        </form>
+      </div>
+
+      <!-- Grid de Categorias de Avisos (Dinâmicos) -->
+      <section class="avisos-section" style="margin-top: 30px;">
+        <h3>Categorias de Avisos</h3>
+        
+        <div class="grid-avisos">
+          <!-- Card 1: Urgentes -->
+          <div class="card-aviso card-urgente" onclick="abrirCardCategoria('urgente', 'Avisos Urgentes')">
+            <div class="card-header-cat">
+              <span class="cat-title">⚠️ AVISOS URGENTES</span>
+              <span class="arrow">&gt;</span>
+            </div>
+            <h4>Avisos Urgentes</h4>
+            <p id="preview-urgente">Nenhum aviso urgente publicado no momento.</p>
+            <div class="card-footer-info">
+              <span>📅 -</span>
+              <span>👤 Direção</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Cardápio Escolar -->
+          <div class="card-aviso card-cardapio" onclick="abrirCardCategoria('cardapio', 'Cardápio Escolar')">
+            <div class="card-header-cat">
+              <span class="cat-title">🥗 CARDÁPIO ESCOLAR</span>
+              <span class="arrow">&gt;</span>
+            </div>
+            <h4>Cardápio Escolar</h4>
+            <p id="preview-cardapio">Nenhum cardápio atualizado no momento.</p>
+            <div class="card-footer-info">
+              <span>📅 -</span>
+              <span>👤 Nutrição Escolar</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Eventos Escolares -->
+          <div class="card-aviso card-evento" onclick="abrirCardCategoria('evento', 'Eventos Escolares')">
+            <div class="card-header-cat">
+              <span class="cat-title">🎉 EVENTOS ESCOLARES</span>
+              <span class="arrow">&gt;</span>
+            </div>
+            <h4>Eventos Escolares</h4>
+            <p id="preview-evento">Nenhum evento cadastrado no momento.</p>
+            <div class="card-footer-info">
+              <span>📅 -</span>
+              <span>👤 Coordenação</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Reuniões Pedagógicas -->
+          <div class="card-aviso card-reuniao" onclick="abrirCardCategoria('reuniao', 'Reuniões Pedagógicas')">
+            <div class="card-header-cat">
+              <span class="cat-title">👥 REUNIÕES PEDAGÓGICAS</span>
+              <span class="arrow">&gt;</span>
+            </div>
+            <h4>Reuniões Pedagógicas</h4>
+            <p id="preview-reuniao">Nenhuma reunião agendada no momento.</p>
+            <div class="card-footer-info">
+              <span>📅 -</span>
+              <span>👤 Direção</span>
+            </div>
+          </div>
+
+          <!-- Card 5: Atividades e Projetos -->
+          <div class="card-aviso card-projeto" onclick="abrirCardCategoria('projeto', 'Atividades e Projetos')">
+            <div class="card-header-cat">
+              <span class="cat-title">🚀 ATIVIDADES E PROJETOS</span>
+              <span class="arrow">&gt;</span>
+            </div>
+            <h4>Atividades e Projetos</h4>
+            <p id="preview-projeto">Nenhum projeto ativo no momento.</p>
+            <div class="card-footer-info">
+              <span>📅 -</span>
+              <span>👤 Coordenação</span>
+            </div>
+          </div>
+
+          <!-- Card 6: Outros -->
+          <div class="card-aviso card-outro" onclick="abrirCardCategoria('outro', 'Outros')">
+            <div class="card-header-cat">
+              <span class="cat-title">📌 OUTROS</span>
+              <span class="arrow">&gt;</span>
+            </div>
+            <h4>Outros Avisos</h4>
+            <p id="preview-outro">Nenhum aviso geral no momento.</p>
+            <div class="card-footer-info">
+              <span>📅 -</span>
+              <span>👤 Direção</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal para exibir o Aviso Publicado -->
+  <div id="modal-aviso" class="modal-overlay hidden">
+    <div class="modal-content">
+      <span id="modal-cat-tag" class="modal-tag">CATEGORIA</span>
+      <h2 id="modal-titulo">Título do Aviso</h2>
+      <p id="modal-texto" style="margin: 15px 0; color: #444; line-height: 1.6;">Conteúdo...</p>
+      <div class="modal-footer">
+        <span id="modal-data">📅 Data</span>
+        <span id="modal-autor">👤 Escola</span>
+      </div>
+      <button onclick="fecharModal()" class="btn-fechar-modal">Fechar</button>
     </div>
-
-    <h2>Avisos Recentes</h2>
-    <div id="lista-avisos"></div>
   </div>
 
   <script src="script.js"></script>
 </body>
-</html>
+</html>]

@@ -1,112 +1,152 @@
-// Seleção dos elementos
-const formLogin = document.getElementById('form-login');
-const formCadastro = document.getElementById('form-cadastro');
-const linkIrCadastro = document.getElementById('link-ir-cadastro');
-const linkIrLogin = document.getElementById('link-ir-login');
+document.addEventListener('DOMContentLoaded', () => {
 
-// Alternar entre Login e Cadastro
-if (linkIrCadastro && linkIrLogin) {
-  linkIrCadastro.addEventListener('click', () => {
-    formLogin.classList.add('hidden');
-    formCadastro.classList.remove('hidden');
-  });
+  // --- 1. Lógica de Cadastro ---
+  const formCadastro = document.getElementById('form-cadastro');
+  if (formCadastro) {
+    formCadastro.addEventListener('submit', (e) => {
+      e.preventDefault();
 
-  linkIrLogin.addEventListener('click', () => {
-    formCadastro.classList.add('hidden');
-    formLogin.classList.remove('hidden');
-  });
-}
+      const nome = document.getElementById('cad-nome').value.trim();
+      const email = document.getElementById('cad-email').value.trim().toLowerCase();
+      const senha = document.getElementById('cad-senha').value;
 
-// Cadastro
-if (formCadastro) {
-  formCadastro.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const nome = document.getElementById('cad-nome').value;
-    const email = document.getElementById('cad-email').value;
-    const senha = document.getElementById('cad-senha').value;
+      if (nome && email && senha) {
+        // Salva os dados do usuário cadastrado no LocalStorage
+        localStorage.setItem('usuario_cadastrado_email', email);
+        localStorage.setItem('usuario_cadastrado_senha', senha);
+        localStorage.setItem('perfil_nome', nome);
 
-    const res = await fetch('/cadastrar', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nome, email, senha })
+        alert('Cadastro realizado com sucesso! Faça login para continuar.');
+        window.location.href = 'index.html';
+      } else {
+        alert('Por favor, preencha todos os campos.');
+      }
     });
-    const dados = await res.json();
-    alert(dados.mensagem || dados.erro);
-    if (res.ok) location.reload();
-  });
-}
+  }
 
-// Login
-if (formLogin) {
-  formLogin.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const email = document.getElementById('login-email').value;
-    const senha = document.getElementById('login-senha').value;
+  // --- 2. Lógica de Login ---
+  const formLogin = document.getElementById('form-login');
+  if (formLogin) {
+    formLogin.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('login-email').value.trim().toLowerCase();
+      const senha = document.getElementById('login-senha').value;
 
-    const res = await fetch('/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, senha })
+      // Recupera o usuário cadastrado para validar (se houver)
+      const emailCadastrado = localStorage.getItem('usuario_cadastrado_email');
+      const senhaCadastrada = localStorage.getItem('usuario_cadastrado_senha');
+
+      if (email && senha) {
+        // Verifica se é a Administradora
+        if (email === 'laraelisa009@gmail.com') {
+          localStorage.setItem('tipo_usuario', 'admin');
+          window.location.href = 'mural.html';
+          return;
+        }
+
+        // Verifica se bate com o usuário recém-cadastrado ou permite acesso padrão de estudante
+        if ((emailCadastrado && email === emailCadastrado && senha === senhaCadastrada) || email.includes('@')) {
+          localStorage.setItem('tipo_usuario', 'estudante');
+          window.location.href = 'mural.html';
+        } else {
+          alert('E-mail ou senha incorretos.');
+        }
+      } else {
+        alert('Por favor, preencha todos os campos.');
+      }
     });
-    const dados = await res.json();
+  }
 
-    if (res.ok) {
-      localStorage.setItem('usuarioLogado', JSON.stringify(dados.usuario));
-      window.location.href = "mural.html";
+  // --- 3. Verificar tipo de usuário ao carregar o Mural ---
+  const caixaAdm = document.getElementById('caixa-adm');
+  const tipoUsuario = localStorage.getItem('tipo_usuario');
+
+  if (caixaAdm) {
+    if (tipoUsuario === 'admin') {
+      caixaAdm.classList.remove('hidden'); // Mostra pro ADM
     } else {
-      alert(dados.erro);
+      caixaAdm.classList.add('hidden');    // Esconde do estudante
+    }
+  }
+
+  // --- 4. Lógica de Publicação do Administrador ---
+  const formPublicar = document.getElementById('form-publicar-aviso');
+  if (formPublicar) {
+    formPublicar.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const titulo = document.getElementById('aviso-titulo').value;
+      const categoria = document.getElementById('aviso-categoria').value;
+      const conteudo = document.getElementById('aviso-conteudo').value;
+      const dataAtual = new Date().toLocaleDateString('pt-BR');
+
+      const novoAviso = {
+        titulo,
+        conteudo,
+        data: dataAtual
+      };
+
+      localStorage.setItem('aviso_' + categoria, JSON.stringify(novoAviso));
+
+      alert('Aviso publicado e direcionado com sucesso!');
+      formPublicar.reset();
+      carregarAvisosNaTela();
+    });
+  }
+
+  carregarAvisosNaTela();
+
+  // --- 5. Persistência do Perfil ---
+  const formPerfil = document.getElementById('form-perfil');
+  if (formPerfil) {
+    if (localStorage.getItem('perfil_nome')) document.getElementById('perfil-nome').value = localStorage.getItem('perfil_nome');
+    if (localStorage.getItem('perfil_serie')) document.getElementById('perfil-serie').value = localStorage.getItem('perfil_serie');
+    if (localStorage.getItem('perfil_periodo')) document.getElementById('perfil-periodo').value = localStorage.getItem('perfil_periodo');
+    if (localStorage.getItem('perfil_telefone')) document.getElementById('perfil-telefone').value = localStorage.getItem('perfil_telefone');
+
+    formPerfil.addEventListener('submit', (e) => {
+      e.preventDefault();
+      localStorage.setItem('perfil_nome', document.getElementById('perfil-nome').value);
+      localStorage.setItem('perfil_serie', document.getElementById('perfil-serie').value);
+      localStorage.setItem('perfil_periodo', document.getElementById('perfil-periodo').value);
+      localStorage.setItem('perfil_telefone', document.getElementById('perfil-telefone').value);
+      alert('Alterações salvas com sucesso!');
+    });
+  }
+});
+
+// Função para atualizar os cards na tela com os dados salvos do ADM
+function carregarAvisosNaTela() {
+  const categorias = ['urgente', 'cardapio', 'evento', 'reuniao', 'projeto', 'outro'];
+
+  categorias.forEach(cat => {
+    const dadosSalvos = localStorage.getItem('aviso_' + cat);
+    const pElement = document.getElementById('preview-' + cat);
+
+    if (dadosSalvos && pElement) {
+      const avisoObj = JSON.parse(dadosSalvos);
+      pElement.innerText = avisoObj.titulo + ': ' + avisoObj.conteudo;
     }
   });
 }
 
-// Lógica da página do Mural (mural.html)
-const caixaAdm = document.getElementById('caixa-adm');
-const formAviso = document.getElementById('form-publicar-aviso');
-const listaAvisos = document.getElementById('lista-avisos');
+// Abrir modal ao clicar no card da categoria
+function abrirCardCategoria(catKey, nomeCat) {
+  const dadosSalvos = localStorage.getItem('aviso_' + catKey);
 
-if (window.location.pathname.endsWith('mural.html')) {
-  const usuario = JSON.parse(localStorage.getItem('usuarioLogado'));
-
-  if (!usuario) {
-    window.location.href = "index.html"; // Se não logou, vai pro login
+  if (dadosSalvos) {
+    const avisoObj = JSON.parse(dadosSalvos);
+    document.getElementById('modal-cat-tag').innerText = nomeCat;
+    document.getElementById('modal-titulo').innerText = avisoObj.titulo;
+    document.getElementById('modal-texto').innerText = avisoObj.conteudo;
+    document.getElementById('modal-data').innerText = '📅 ' + avisoObj.data;
+    document.getElementById('modal-aviso').classList.remove('hidden');
   } else {
-    // Mostra a caixa de publicar SÓ se for admin
-    caixaAdm.style.display = (usuario.tipo === 'admin') ? 'block' : 'none';
-    carregarAvisos();
+    alert('Ainda não há nenhum aviso publicado nesta categoria.');
   }
 }
 
-// Carregar avisos do banco
-async function carregarAvisos() {
-  if (!listaAvisos) return;
-  const res = await fetch('/avisos');
-  const avisos = await res.json();
-
-  listaAvisos.innerHTML = avisos.length ? '' : '<p>Nenhum aviso ainda.</p>';
-  avisos.forEach(a => {
-    listaAvisos.innerHTML += `
-      <div class="card-aviso">
-        <h3>${a.titulo}</h3>
-        <p>${a.conteudo}</p>
-      </div>
-    `;
-  });
-}
-
-// Enviar novo aviso
-if (formAviso) {
-  formAviso.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const titulo = document.getElementById('aviso-titulo').value;
-    const conteudo = document.getElementById('aviso-conteudo').value;
-
-    await fetch('/avisos', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ titulo, conteudo })
-    });
-
-    formAviso.reset();
-    carregarAvisos();
-  });
+function fecharModal() {
+  document.getElementById('modal-aviso').classList.add('hidden');
 }

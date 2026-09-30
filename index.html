@@ -8,29 +8,37 @@
 </head>
 <body>
 
-  <div class="auth-container">
-    <!-- Formulário de Login -->
-    <form id="form-login" class="auth-form">
-      <h2>Entrar no CEEP Informa</h2>
-      <input type="email" id="login-email" placeholder="E-mail" required>
-      <input type="password" id="login-senha" placeholder="Senha" required>
-      <button type="submit">Entrar</button>
-      <p class="toggle-text">
-        Ainda não tem conta? <a href="#" id="link-ir-cadastro">Cadastre-se</a>
-      </p>
-    </form>
+  <div class="split-screen">
+    <!-- Painel Lateral Esquerdo -->
+    <div class="left-panel">
+      <div class="brand-content">
+        <h1>ceep<br>Informa</h1>
+        <p class="subtitle">Plataforma de Avisos Escolares</p>
+      </div>
+      <p class="quote">"A informação é a base para uma escola mais unida e conectada."</p>
+    </div>
 
-    <!-- Formulário de Cadastro (Oculto por padrão) -->
-    <form id="form-cadastro" class="auth-form hidden">
-      <h2>Criar Conta</h2>
-      <input type="text" id="cad-nome" placeholder="Nome Completo" required>
-      <input type="email" id="cad-email" placeholder="E-mail" required>
-      <input type="password" id="cad-senha" placeholder="Senha" required>
-      <button type="submit">Cadastrar</button>
-      <p class="toggle-text">
-        Já possui uma conta? <a href="#" id="link-ir-login">Fazer Login</a>
-      </p>
-    </form>
+    <!-- Painel Direito (Formulário de Login) -->
+    <div class="right-panel">
+      <form id="form-login" class="auth-form">
+        <h2>Entrar na conta</h2>
+        <p class="form-desc">Insira seus dados para acessar o mural de avisos.</p>
+        
+        <div class="input-group">
+          <input type="email" id="login-email" placeholder="E-mail institucional" required>
+        </div>
+        
+        <div class="input-group">
+          <input type="password" id="login-senha" placeholder="Sua senha" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Entrar</button>
+
+        <p class="toggle-text">
+          Ainda não tem uma conta? <a href="cadastro.html">Cadastre-se</a>
+        </p>
+      </form>
+    </div>
   </div>
 
   <script src="script.js"></script>

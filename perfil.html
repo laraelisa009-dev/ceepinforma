@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEEP Informa - Meu Perfil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="dashboard-container">
+    
+    <!-- Menu Lateral -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h2>ceep <span>Informa</span></h2>
+        <p>Plataforma de avisos</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="mural.html" class="nav-item">Início</a>
+        <a href="perfil.html" class="nav-item active">Meu perfil</a>
+        <a href="contato.html" class="nav-item">Contato</a>
+        <a href="index.html" class="nav-item logout">Sair da conta</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <p>Juntos por uma escola melhor! ♥</p>
+      </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+      
+      <header class="topbar">
+        <div class="search-box">
+          <input type="text" placeholder="Buscar...">
+        </div>
+        <div class="user-info-top">
+          <span>Configurações da Conta</span>
+        </div>
+      </header>
+
+      <section class="profile-section">
+        <h2>Meu Perfil</h2>
+        <p class="form-desc">Atualize suas informações escolares e de contato.</p>
+
+        <form id="form-perfil" class="admin-section" style="border-left-color: #163c78;">
+          <div class="input-group">
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#163c78;">Nome Completo</label>
+            <input type="text" id="perfil-nome" placeholder="Seu nome completo" style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #dcdcdc; border-radius:8px; outline:none;">
+          </div>
+
+          <div class="input-group">
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#163c78;">E-mail</label>
+            <input type="email" id="perfil-email" placeholder="seu.email@escola.com" disabled style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #dcdcdc; border-radius:8px; background:#f9f9f9;">
+          </div>
+
+          <div class="input-group">
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#163c78;">Série / Ano</label>
+            <input type="text" id="perfil-serie" placeholder="Ex: 2º Ano Desenvolvimento de Sistemas" style="width:100%; padding:10px; margin-bottom:12px; border:1px solid #dcdcdc; border-radius:8px; outline:none;">
+          </div>
+
+          <div class="input-group">
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#163c78;">Período</label>
+            <select id="perfil-periodo" style="width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #dcdcdc; border-radius: 8px; outline: none; background: white;">
+              <option value="Manhã">Manhã</option>
+              <option value="Tarde">Tarde</option>
+              <option value="Noite">Noite</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label style="display:block; margin-bottom:5px; font-weight:600; color:#163c78;">Telefone / WhatsApp</label>
+            <input type="text" id="perfil-telefone" placeholder="(00) 00000-0000" style="width:100%; padding:10px; margin-bottom:15px; border:1px solid #dcdcdc; border-radius:8px; outline:none;">
+          </div>
+
+          <button type="submit" class="btn-submit">Salvar Alterações</button>
+        </form>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

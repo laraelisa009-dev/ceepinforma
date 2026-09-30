@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CEEP Informa - Cadastro</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="split-screen">
+    <!-- Painel Lateral Esquerdo -->
+    <div class="left-panel">
+      <div class="brand-content">
+        <h1>ceep<br>Informa</h1>
+        <p class="subtitle">Plataforma de Avisos Escolares</p>
+      </div>
+      <p class="quote">"Faça parte da nossa comunidade escolar."</p>
+    </div>
+
+    <!-- Painel Direito (Formulário de Cadastro) -->
+    <div class="right-panel">
+      <form id="form-cadastro" class="auth-form">
+        <h2>Criar sua conta</h2>
+        <p class="form-desc">Preencha os dados abaixo para se cadastrar.</p>
+        
+        <div class="input-group">
+          <input type="text" id="cad-nome" placeholder="Nome completo" required>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="cad-email" placeholder="E-mail institucional" required>
+        </div>
+        
+        <div class="input-group">
+          <input type="password" id="cad-senha" placeholder="Crie uma senha" required>
+        </div>
+
+        <button type="submit" class="btn-submit">Cadastrar</button>
+
+        <p class="toggle-text">
+          Já tem uma conta? <a href="index.html">Faça login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
