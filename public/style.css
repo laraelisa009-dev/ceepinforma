@@ -1,3 +1,4 @@
+/* RESET BÁSICO */
 * {
   margin: 0;
   padding: 0;
@@ -6,397 +7,169 @@
 }
 
 body {
-  background-color: #f4f6f9;
-  color: #333;
+  background-color: #121212;
+  color: #ffffff;
   min-height: 100vh;
-}
-
-.hidden {
-  display: none !important;
-}
-
-/* --- Tela Dividida (Login/Cadastro) --- */
-.split-screen {
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTAINER PRINCIPAL (LAYOUT COMPUTADOR) */
+.main-container {
+  display: flex;
+  flex-direction: row; /* Lado a lado no computador */
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
-.left-panel {
+/* PAINEL AZUL (MARCA) */
+.brand-panel {
   flex: 1;
-  background-color: #163c78;
-  color: white;
+  background-color: #031548; /* Azul escuro principal */
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 40px;
   text-align: center;
 }
 
-.brand-content h1 {
+.brand-content {
+  max-width: 400px;
+}
+
+.brand-title {
   font-size: 3.5rem;
   font-weight: 800;
   line-height: 1.1;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+  color: #ffffff;
 }
 
-.subtitle {
+.brand-subtitle {
   font-size: 1.2rem;
-  opacity: 0.9;
-  margin-bottom: 30px;
+  color: #d1d5db;
+  margin-bottom: 24px;
 }
 
-.quote {
-  font-size: 1rem;
+.brand-quote {
   font-style: italic;
-  opacity: 0.8;
-  max-width: 300px;
+  font-size: 0.95rem;
+  color: #9ca3af;
 }
 
-.right-panel {
+/* PAINEL ESCURO (FORMULÁRIO DE LOGIN) */
+.login-panel {
   flex: 1;
-  background-color: #ffffff;
+  background-color: #18181b; /* Fundo escuro */
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   padding: 40px;
 }
 
-.auth-form {
+.login-content {
   width: 100%;
-  max-width: 380px;
+  max-width: 320px;
 }
 
-.auth-form h2 {
-  font-size: 1.8rem;
-  color: #163c78;
+.login-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #60a5fa; /* Azul claro para destaque */
   margin-bottom: 8px;
 }
 
-.form-desc {
+.login-description {
   font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 25px;
+  color: #9ca3af;
+  margin-bottom: 24px;
 }
 
-.input-group {
-  margin-bottom: 15px;
+/* FORMULÁRIO E INPUTS */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.auth-form input {
+.input-group input {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #dcdcdc;
+  padding: 12px 16px;
+  background-color: #27272a;
+  border: 1px solid #3f3f46;
   border-radius: 8px;
+  color: #ffffff;
   font-size: 0.95rem;
   outline: none;
   transition: border-color 0.2s;
 }
 
-.auth-form input:focus {
-  border-color: #163c78;
+.input-group input:focus {
+  border-color: #2563eb;
 }
 
-.btn-submit {
+/* BOTAÃO ENTRAR */
+.btn-primary {
   width: 100%;
   padding: 12px;
-  background-color: #163c78;
-  color: white;
+  background-color: #0284c7;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 10px;
   transition: background-color 0.2s;
 }
 
-.btn-submit:hover {
-  background-color: #102c59;
+.btn-primary:hover {
+  background-color: #0369a1;
 }
 
-.toggle-text {
-  margin-top: 20px;
+/* LINKS E CADASTRO */
+.signup-link {
+  margin-top: 24px;
   text-align: center;
   font-size: 0.9rem;
-  color: #666;
+  color: #9ca3af;
 }
 
-.toggle-text a {
-  color: #163c78;
+.signup-link a {
+  color: #60a5fa;
   text-decoration: none;
   font-weight: 600;
+  display: block;
+  margin-top: 4px;
 }
 
-/* --- Layout Dashboard --- */
-.dashboard-container {
-  display: flex;
-  min-height: 100vh;
+.signup-link a:hover {
+  text-decoration: underline;
 }
 
-.sidebar {
-  width: 260px;
-  background-color: #163c78;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px 20px;
-}
+/* =================================================== */
+/* AJUSTE RESPONSIVO PARA TELEMÓVEIS (ECRÃS PEQUENOS)  */
+/* =================================================== */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column; /* Empilha: azul em cima, formulário em baixo */
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
 
-.sidebar-brand h2 {
-  font-size: 1.6rem;
-  font-weight: 800;
-}
+  .brand-panel {
+    padding: 40px 20px;
+    width: 100%;
+  }
 
-.sidebar-brand p {
-  font-size: 0.8rem;
-  opacity: 0.8;
-  margin-top: 2px;
-}
+  .brand-title {
+    font-size: 2.5rem;
+  }
 
-.sidebar-nav {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.nav-item {
-  color: white;
-  text-decoration: none;
-  padding: 12px 15px;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  transition: background 0.2s;
-}
-
-.nav-item:hover, .nav-item.active {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.nav-item.logout {
-  margin-top: 20px;
-  color: #ffb4b4;
-}
-
-.sidebar-footer p {
-  font-size: 0.85rem;
-  font-style: italic;
-  opacity: 0.8;
-  text-align: center;
-}
-
-.main-content {
-  flex: 1;
-  padding: 30px;
-  overflow-y: auto;
-}
-
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.search-box input {
-  width: 380px;
-  padding: 10px 15px;
-  border: 1px solid #dcdcdc;
-  border-radius: 20px;
-  outline: none;
-  background: white;
-}
-
-.welcome-banner {
-  margin-bottom: 25px;
-}
-
-.welcome-banner h2 {
-  font-size: 1.4rem;
-  color: #163c78;
-}
-
-.admin-section {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  margin-bottom: 30px;
-  border-left: 5px solid #163c78;
-}
-
-.admin-section input, .admin-section textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #dcdcdc;
-  border-radius: 8px;
-  outline: none;
-}
-
-.admin-section button {
-  background-color: #163c78;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-/* --- Grid e Estética dos Cards por Categoria --- */
-.avisos-section h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-.grid-avisos {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 20px;
-}
-
-.card-aviso {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid #eaeaea;
-}
-
-.card-aviso:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-}
-
-.card-header-cat {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.arrow {
-  font-size: 1rem;
-  color: #888;
-}
-
-.card-aviso h4 {
-  font-size: 1.05rem;
-  color: #163c78;
-  margin-bottom: 8px;
-}
-
-.card-aviso p {
-  color: #555;
-  font-size: 0.9rem;
-  line-height: 1.4;
-  margin-bottom: 15px;
-}
-
-.card-footer-info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.75rem;
-  color: #777;
-  border-top: 1px solid #f0f0f0;
-  padding-top: 10px;
-}
-
-/* Cores específicas das categorias baseadas na referência */
-.card-urgente { border-top: 4px solid #e74c3c; background-color: #fff8f8; }
-.card-urgente .cat-title { color: #c0392b; }
-
-.card-cardapio { border-top: 4px solid #27ae60; background-color: #f4faf6; }
-.card-cardapio .cat-title { color: #27ae60; }
-
-.card-evento { border-top: 4px solid #8e44ad; background-color: #faf5fc; }
-.card-evento .cat-title { color: #8e44ad; }
-
-.card-reuniao { border-top: 4px solid #2980b9; background-color: #f4f8fc; }
-.card-reuniao .cat-title { color: #2980b9; }
-
-.card-projeto { border-top: 4px solid #f39c12; background-color: #fdfaf3; }
-.card-projeto .cat-title { color: #d35400; }
-
-.card-outro { border-top: 4px solid #7f8c8d; background-color: #f9f9f9; }
-.card-outro .cat-title { color: #7f8c8d; }
-
-.item-aviso-lista {
-  border-bottom: 1px solid #eee;
-  padding: 12px 0;
-}
-.item-aviso-lista:last-child {
-  border-bottom: none;
-}
-.btn-excluir {
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 0.8rem;
-  cursor: pointer;
-  margin-top: 8px;
-}
-
-/* --- Modal de Avisos --- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
-  max-height: 80vh;
-  overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
-
-.modal-tag {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #163c78;
-  background: #eef2fb;
-  padding: 4px 10px;
-  border-radius: 20px;
-  margin-bottom: 15px;
-}
-
-.btn-fechar-modal {
-  width: 100%;
-  padding: 10px;
-  background-color: #163c78;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 15px;
-}
-
-.btn-fechar-modal:hover {
-  background-color: #102c59;
+  .login-panel {
+    padding: 40px 20px;
+    width: 100%;
+  }
 }
