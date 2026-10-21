@@ -60,8 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Proteção de rotas e verificação de sessão
   const usuarioAtivo = JSON.parse(sessionStorage.getItem('usuario_ativo'));
   const paginaAtual = window.location.pathname;
+  const emMural = paginaAtual.includes('mural');
+  const emPerfil = paginaAtual.includes('perfil');
+  const emContato = paginaAtual.includes('contato');
 
-  if ((paginaAtual.includes('mural.html') || paginaAtual.includes('perfil.html') || paginaAtual.includes('contato.html')) && !usuarioAtivo) {
+  if ((emMural || emPerfil || emContato) && !usuarioAtivo) {
     window.location.href = 'index.html';
   }
 
@@ -105,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (paginaAtual.includes('mural.html')) {
+  if (emMural) {
     carregarAvisosDoServidor();
   }
 
@@ -217,7 +220,12 @@ function abrirListaCategoria(categoria) {
 
     const rodape = document.createElement('div');
     rodape.className = 'card-footer-info';
-    rodape.innerHTML = `<span>📅 ${aviso.data}</span><span>👤 ${aviso.autor}</span>`;
+    const spanData = document.createElement('span');
+    spanData.textContent = `📅 ${aviso.data}`;
+    const spanAutor = document.createElement('span');
+    spanAutor.textContent = `👤 ${aviso.autor}`;
+    rodape.appendChild(spanData);
+    rodape.appendChild(spanAutor);
 
     item.appendChild(titulo);
     item.appendChild(conteudo);
