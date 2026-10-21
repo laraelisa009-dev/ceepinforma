@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Meta tag essencial para adaptação a telemóveis -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CEEP Informa - Login</title>
   <link rel="stylesheet" href="style.css">
@@ -10,8 +9,8 @@
 <body>
 
   <div class="main-container">
-    
-    <!-- Painel Azul (Lado Esquerdo no PC / No Topo no Telemóvel) -->
+
+    <!-- Painel Azul -->
     <div class="brand-panel">
       <div class="brand-content">
         <h1 class="brand-title">ceep<br>Informa</h1>
@@ -22,7 +21,7 @@
       </div>
     </div>
 
-    <!-- Painel Escuro / Formuário de Login (Lado Direito no PC / Abaixo no Telemóvel) -->
+    <!-- Painel Escuro / Login -->
     <div class="login-panel">
       <div class="login-content">
         <h2 class="login-title">Entrar na conta</h2>
@@ -30,13 +29,13 @@
           Insira seus dados para acessar o mural de avisos.
         </p>
 
-        <form class="login-form">
+        <form class="login-form" id="form-login">
           <div class="input-group">
-            <input type="email" placeholder="E-mail" required>
+            <input type="email" id="login-email" placeholder="E-mail" required>
           </div>
-          
+
           <div class="input-group">
-            <input type="password" placeholder="Sua senha" required>
+            <input type="password" id="login-senha" placeholder="Sua senha" required>
           </div>
 
           <button type="submit" class="btn-primary">Entrar</button>
@@ -44,12 +43,13 @@
 
         <div class="signup-link">
           <p>Ainda não tem uma conta?</p>
-          <a href="#">Cadastre-se</a>
+          <a href="cadastro.html">Cadastre-se</a>
         </div>
       </div>
     </div>
 
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
