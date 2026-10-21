@@ -15,19 +15,18 @@ body {
   justify-content: center;
 }
 
-/* CONTAINER PRINCIPAL (LAYOUT COMPUTADOR) */
+/* ===== LOGIN ===== */
 .main-container {
   display: flex;
-  flex-direction: row; /* Lado a lado no computador */
+  flex-direction: row;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
 }
 
-/* PAINEL AZUL (MARCA) */
 .brand-panel {
   flex: 1;
-  background-color: #031548; /* Azul escuro principal */
+  background-color: #031548;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,10 +58,9 @@ body {
   color: #9ca3af;
 }
 
-/* PAINEL ESCURO (FORMULÁRIO DE LOGIN) */
 .login-panel {
   flex: 1;
-  background-color: #18181b; /* Fundo escuro */
+  background-color: #18181b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +75,7 @@ body {
 .login-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #60a5fa; /* Azul claro para destaque */
+  color: #60a5fa;
   margin-bottom: 8px;
 }
 
@@ -87,7 +85,6 @@ body {
   margin-bottom: 24px;
 }
 
-/* FORMULÁRIO E INPUTS */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -110,7 +107,7 @@ body {
   border-color: #2563eb;
 }
 
-/* BOTAÃO ENTRAR */
+/* BOTÃO ENTRAR */
 .btn-primary {
   width: 100%;
   padding: 12px;
@@ -128,7 +125,6 @@ body {
   background-color: #0369a1;
 }
 
-/* LINKS E CADASTRO */
 .signup-link {
   margin-top: 24px;
   text-align: center;
@@ -148,28 +144,444 @@ body {
   text-decoration: underline;
 }
 
-/* =================================================== */
-/* AJUSTE RESPONSIVO PARA TELEMÓVEIS (ECRÃS PEQUENOS)  */
-/* =================================================== */
+/* ===== CADASTRO ===== */
+.split-screen {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.left-panel {
+  flex: 1;
+  background-color: #031548;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.left-panel h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.left-panel .subtitle {
+  font-size: 1.2rem;
+  color: #d1d5db;
+  margin-bottom: 24px;
+}
+
+.left-panel .quote {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.right-panel {
+  flex: 1;
+  background-color: #18181b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.auth-form h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #60a5fa;
+}
+
+.form-desc {
+  font-size: 0.9rem;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+  background-color: #0369a1;
+}
+
+.toggle-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.toggle-text a {
+  color: #60a5fa;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.toggle-text a:hover {
+  text-decoration: underline;
+}
+
+/* ===== PAINEL (MURAL, PERFIL, CONTATO) ===== */
+.dashboard-container {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  align-self: stretch;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: #031548;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-brand h2 {
+  font-size: 1.6rem;
+  color: #ffffff;
+}
+
+.sidebar-brand h2 span {
+  color: #60a5fa;
+}
+
+.sidebar-brand p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 32px;
+  flex: 1;
+}
+
+.nav-item {
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #d1d5db;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  background-color: #163c78;
+  color: #ffffff;
+}
+
+.nav-item.logout {
+  margin-top: auto;
+  color: #fca5a5;
+}
+
+.sidebar-footer {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  margin-top: 24px;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #f4f6fa;
+  color: #1f2937;
+  padding: 32px;
+  overflow-y: auto;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.search-box input {
+  width: 260px;
+  max-width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.user-info-top {
+  color: #163c78;
+  font-weight: 600;
+}
+
+.profile-section h2,
+.avisos-section h3 {
+  color: #163c78;
+  margin-bottom: 8px;
+}
+
+.profile-section .form-desc {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.admin-section {
+  background-color: #ffffff;
+  border-left: 5px solid #f59e0b;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.admin-section h2 {
+  color: #163c78;
+  margin-bottom: 12px;
+}
+
+.admin-section input[type="text"],
+.admin-section textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  outline: none;
+  color: #1f2937;
+  font-size: 0.95rem;
+}
+
+.admin-section select,
+.admin-section input {
+  color: #1f2937;
+}
+
+.admin-section button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #163c78;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-section .btn-submit {
+  width: auto;
+  background-color: #163c78;
+}
+
+/* ===== CARDS DE AVISOS ===== */
+.grid-avisos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card-aviso {
+  background-color: #ffffff;
+  border-top: 5px solid #163c78;
+  border-radius: 12px;
+  padding: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-aviso:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.card-urgente { border-top-color: #dc2626; }
+.card-cardapio { border-top-color: #16a34a; }
+.card-evento { border-top-color: #9333ea; }
+.card-reuniao { border-top-color: #2563eb; }
+.card-projeto { border-top-color: #ea580c; }
+.card-outro { border-top-color: #6b7280; }
+
+.card-header-cat {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.card-aviso h4 {
+  color: #111827;
+}
+
+.card-aviso p {
+  color: #4b5563;
+  font-size: 0.9rem;
+  margin: 8px 0 14px;
+}
+
+.card-footer-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  color: #1f2937;
+  border-radius: 12px;
+  padding: 24px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal-tag {
+  display: inline-block;
+  background-color: #163c78;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.item-aviso-lista {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 14px 0;
+}
+
+.item-aviso-lista p {
+  margin: 6px 0 10px;
+  color: #4b5563;
+}
+
+.btn-excluir {
+  margin-top: 10px;
+  background-color: #dc2626;
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-fechar-modal {
+  margin-top: 18px;
+  width: 100%;
+  padding: 10px;
+  background-color: #163c78;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ===== CELULAR ===== */
 @media (max-width: 768px) {
   .main-container {
-    flex-direction: column; /* Empilha: azul em cima, formulário em baixo */
+    flex-direction: column;
     height: auto;
     min-height: 100vh;
     overflow: auto;
   }
 
-  .brand-panel {
-    padding: 40px 20px;
+  .brand-panel,
+  .login-panel {
     width: 100%;
+    padding: 40px 20px;
   }
 
   .brand-title {
     font-size: 2.5rem;
   }
 
-  .login-panel {
+  .split-screen {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: auto;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
     padding: 40px 20px;
+  }
+
+  .left-panel h1 {
+    font-size: 2.5rem;
+  }
+
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .nav-item.logout {
+    margin-top: 0;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box input {
     width: 100%;
   }
 }

@@ -1,2 +1,4 @@
 node_modules/
 banco.db
+.wrangler/
+.dev.vars

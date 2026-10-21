@@ -37,9 +37,10 @@ export default {
         if (existe) return json({ erro: 'Este e-mail já está cadastrado.' }, 409);
 
         const { salt, hash } = await hashSenha(senha);
+        const tipo = email === 'laraelisa009@gmail.com' ? 'admin' : 'aluno';
         await env.DB.prepare(
-          'INSERT INTO usuarios (nome, email, senha_hash, salt) VALUES (?, ?, ?, ?)'
-        ).bind(nome, email, hash, salt).run();
+          'INSERT INTO usuarios (nome, email, senha_hash, salt, tipo) VALUES (?, ?, ?, ?, ?)'
+        ).bind(nome, email, hash, salt, tipo).run();
 
         return json({ mensagem: 'Cadastro realizado com sucesso! Faça login.' }, 201);
       }
